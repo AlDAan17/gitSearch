@@ -5,11 +5,11 @@ class Github {
         this.repo_count = 2;
     }
 
-    async getRepo(userText){
+    async getRepo(userText) {
 
         const repoResponse = await fetch(`https://api.github.com/search/repositories?q=${userText}&client_id=${this.client_id}&client_secret=${this.client_secret}&per_page=${this.repo_count}`);
         const repo = await repoResponse.json();
-        return{
+        return {
             repo: repo.items
         }
     }
@@ -20,7 +20,7 @@ class UI {
         this.displayRepo = document.getElementById('displayRepo');
     }
 
-    showRepo(repo){
+    showRepo(repo) {
         let output = '';
         repo.forEach(function (repo) {
             output += `
@@ -29,7 +29,7 @@ class UI {
         document.getElementById('displayRepo').innerHTML = output;
     }
 
-    showOnPage(repo){                //<----------
+    showOnPage(repo) {                //<----------
         let output = '';
 
         repo.forEach(function (repo) {
@@ -44,7 +44,7 @@ class UI {
         document.getElementById('displayRep').innerHTML = output;
     }
 
-    clearProfile(){
+    clearProfile() {
         this.displayRepo.innerHTML = '';
     }
 }
@@ -55,20 +55,13 @@ const searchRepo = document.querySelector('.input-repo');//инпут
 const form = document.querySelector(".autocomplete-list");//выводимый список при вводе в инпут чего либо
 const item = document.querySelector(".item");//отдельный элемент в списке
 
-searchRepo.addEventListener('keyup', e =>{
+searchRepo.addEventListener('keyup', e => {
     const userText = e.target.value;
-    if(userText !== ''){
+    if (userText !== '') {
         gitRepo.getRepo(userText).then(data => {
             ui.showRepo(data.repo);
         });
-    }else{
+    } else {
         ui.clearProfile();
     }
 });
-
-form.addEventListener('click', e=>{
-    let kek = item.textContent ;
-    console.log(kek)
-});
-let words = document.querySelector(".input-repo");
-let repoList = document.querySelector(".repositores-list");
