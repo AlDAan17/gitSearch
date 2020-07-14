@@ -18,6 +18,7 @@ class Github {
 class UI {
     constructor() {
         this.displayRepo = document.getElementById('displayRepo');
+        // this.input = document.q
     }
 
     showRepo(repo) {
@@ -47,6 +48,10 @@ class UI {
     clearProfile() {
         this.displayRepo.innerHTML = '';
     }
+
+    clearInput(){
+
+    }
 }
 
 const gitRepo = new Github();
@@ -60,10 +65,23 @@ searchRepo.addEventListener('keyup', e => {
     if (userText !== '') {
         gitRepo.getRepo(userText).then(data => {
             ui.showRepo(data.repo);
+
             const items = document.getElementsByClassName("item");
-            for(let i = 0; i < items.length; i++){     //<------
-                items[i].addEventListener('onclick', e =>{
-                    console.log('works');
+            for(let i = 0; i < items.length; i++){
+                items[i].addEventListener('click', e =>{
+                    gitRepo.getRepo(items[i].innerText).then(data => {
+                        ui.showOnPage(data.repo)
+                    });
+
+                    // const closeItems = document.getElementsByClassName('close');
+                    // for(let i = 0; i < closeItems.length; i++){
+                    //     closeItems[i].addEventListener('click', e =>{
+                    //         // items[i].removeChild(items[i])
+                    //         console.log('works')
+                    //     })
+                    // }
+                    // console.log(userText)
+                    // userText = '';
                 })
             }
         });
