@@ -30,7 +30,7 @@ class UI {
         document.getElementById('displayRepo').innerHTML = output;
     }
 
-    showOnPage(repo) {                //<----------
+    showOnPage(repo) {
         let output = '';
 
         repo.forEach(function (repo) {
@@ -68,7 +68,7 @@ searchRepo.addEventListener('keyup', e => {
 
             const items = document.getElementsByClassName("item");
             for(let i = 0; i < items.length; i++){
-                items[i].addEventListener('click', e =>{
+                items[i].addEventListener('click', e =>{    //<------
                     gitRepo.getRepo(items[i].innerText).then(data => {
                         ui.showOnPage(data.repo)
                     });
