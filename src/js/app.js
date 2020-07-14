@@ -72,14 +72,6 @@ searchRepo.addEventListener('keyup', e => {
                     gitRepo.getRepo(items[i].innerText).then(data => {
                         ui.showOnPage(data.repo)
                     });
-
-                    // const closeItems = document.getElementsByClassName('close');
-                    // for(let i = 0; i < closeItems.length; i++){
-                    //     closeItems[i].addEventListener('click', e =>{
-                    //         // items[i].removeChild(items[i])
-                    //         console.log('works')
-                    //     })
-                    // }
                 })
             }
         });
