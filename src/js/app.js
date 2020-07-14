@@ -80,8 +80,6 @@ searchRepo.addEventListener('keyup', e => {
                     //         console.log('works')
                     //     })
                     // }
-                    // console.log(userText)
-                    // userText = '';
                 })
             }
         });
