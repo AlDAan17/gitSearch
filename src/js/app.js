@@ -8,7 +8,7 @@ class Github {
     async getRepo(userText) {
         const repoResponse = await fetch(`https://api.github.com/search/repositories?q=${userText}&client_id=${this.client_id}&client_secret=${this.client_secret}&per_page=${this.repo_count}`);
         const repo = await repoResponse.json();
-        console.log('THIS IS IT', repo.items);
+        // console.log('THIS IS IT', repo.items);
         return {
             repo: repo.items
         };
@@ -65,7 +65,7 @@ searchRepo.addEventListener('keyup', e => {
             for(let i = 0; i < items.length; i++){
                 items[i].addEventListener('click', e =>{
                     gitRepo.getRepo(items[i].innerText).then(data => {
-                        console.log('DATA: ', data.repo[0])
+                        // console.log('DATA: ', data.repo[0])
                         ui.showOnPage(data.repo[0])
                     });
                 })
@@ -75,3 +75,11 @@ searchRepo.addEventListener('keyup', e => {
         ui.clearProfile();
     }
 });
+
+// const closeItems = document.getElementsByClassName('close');
+// for(let i = 0; i < closeItems.length; i++){
+//     closeItems[i].addEventListener('click', e =>{
+//         // items[i].removeChild(items[i])
+//         console.log('works')
+//     })
+// }
