@@ -30,9 +30,6 @@ class UI {
     }
 
     showOnPage(repo) {
-        let output = '';
-
-        // function Test(){
             document.getElementById('displayRep').innerHTML += `
             <div class="repo-list-item">
               <p class="p-list">Name: ${repo.name}</p>
@@ -41,20 +38,15 @@ class UI {
               <div class="close"></div>
             </div>
             `;
-        // document.getElementById('displayRep').innerHTML = output;
-        //     Test();
-                // });
-
-            // }
     }
 
     clearProfile() {
         this.displayRepo.innerHTML = '';
     }
 
-    clearInput(){
-
-    }
+    // clearInput(){
+    //
+    // }
 }
 
 const gitRepo = new Github();
@@ -75,7 +67,6 @@ searchRepo.addEventListener('keyup', e => {
                     gitRepo.getRepo(items[i].innerText).then(data => {
                         console.log('DATA: ', data.repo[0])
                         ui.showOnPage(data.repo[0])
-                        // console.log(data.repo)
                     });
                 })
             }
@@ -84,11 +75,3 @@ searchRepo.addEventListener('keyup', e => {
         ui.clearProfile();
     }
 });
-
-// const closeItems = document.getElementsByClassName('close');
-// for(let i = 0; i < closeItems.length; i++){
-//     closeItems[i].addEventListener('click', e =>{
-//         // items[i].removeChild(items[i])
-//         console.log('works')
-//     })
-// }
