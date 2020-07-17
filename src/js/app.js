@@ -64,8 +64,20 @@ searchRepo.addEventListener('keyup', e => {
             for(let i = 0; i < items.length; i++){
                 items[i].addEventListener('click', e =>{
                     gitRepo.getRepo(items[i].innerText).then(data => {
-                        // console.log('DATA: ', data.repo[0])
+                        console.log('DATA: ', data.repo[0])
                         ui.showOnPage(data.repo[0])
+
+                        const closeItems = document.getElementsByClassName('close');
+                        const repoList = document.getElementsByClassName('repo-list-item');
+                        for(let i = 0; i < repoList.length; i++) {
+                            for (let i = 0; i < closeItems.length; i++) {
+                                console.log(closeItems[i])
+                                closeItems[i].addEventListener('click', e => {
+                                    closeItems[i].removeChild(repoList[i]);
+                                    console.log('works',)
+                                })
+                            }
+                        }
                     });
                 })
             }
@@ -74,3 +86,13 @@ searchRepo.addEventListener('keyup', e => {
         ui.clearProfile();
     }
 });
+
+// const closeItems = document.getElementsByClassName('close');
+// console.log(closeItems)
+// for(let i = 0; i < closeItems.length; i++){
+//     console.log(closeItems[i])
+//     closeItems[i].addEventListener('click', e =>{
+//         // items[i].removeChild(items[i])
+//         console.log('works')
+//     })
+// }
