@@ -6,6 +6,7 @@ class Github {
     }
 
     async getRepo(userText) {
+        // console.log(userText.target.value)
         const repoResponse = await fetch(`https://api.github.com/search/repositories?q=${userText}&client_id=${this.client_id}&client_secret=${this.client_secret}&per_page=${this.repo_count}`);
         const repo = await repoResponse.json();
         return {
@@ -29,7 +30,7 @@ class UI {
     }
 
     showOnPage(repo) {
-            document.getElementById('displayRep').innerHTML += `
+        document.getElementById('displayRep').innerHTML += `
             <div class="repo-list-item">
               <p class="p-list">Name: ${repo.name}</p>
               <p class="p-list">Owner: ${repo.owner.login}</p>
@@ -56,33 +57,36 @@ const form = document.querySelector(".autocomplete-list");//выводимый �
 
 searchRepo.addEventListener('keyup', e => {
     const userText = e.target.value;
-    if (userText !== '') {
+    if (userText === '') {
+        ui.clearProfile();
+    } else {
         gitRepo.getRepo(userText).then(data => {
             ui.showRepo(data.repo);
 
             const items = document.getElementsByClassName("item");
-            for(let i = 0; i < items.length; i++){
-                items[i].addEventListener('click', e =>{
+            for (let i = 0; i < items.length; i++) {
+                items[i].addEventListener('click', e => {
                     gitRepo.getRepo(items[i].innerText).then(data => {
-                        console.log('DATA: ', data.repo[0])
-                        ui.showOnPage(data.repo[0])
+                        console.log('DATA: ', data.repo[0]);
+                        ui.showOnPage(data.repo[0]);
+                        ui.clearProfile();
+                        searchRepo.value='';
 
                         const closeItems = document.getElementsByClassName('close');
-                        const repoList = document.getElementsByClassName('repo-list-item');
-                        for(let i = 0; i < repoList.length; i++) {
-                            for (let i = 0; i < closeItems.length; i++) {
-                                console.log(closeItems[i])
-                                closeItems[i].addEventListener('click', e => {
-                                    closeItems[i].removeChild(repoList[i]);
-                                    console.log('works',)
-                                })
-                            }
+                        const repoList = document.getElementsByClassName('repositores-list');
+                        const repoListItem = document.getElementsByClassName('repo-list-item');
+                        for (let i = 0; i < repoList.length; i++) {
+                            for (let i = 0; i < repoListItem.length; i++) {
+                            closeItems[i].addEventListener('click', e => {
+                                repoListItem[i].remove(closeItems[i]);
+                                console.log('close item is:', closeItems[i]);
+
+                            })
+                        }
                         }
                     });
                 })
             }
         });
-    } else {
-        ui.clearProfile();
     }
 });
