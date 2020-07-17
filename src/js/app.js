@@ -2,7 +2,7 @@ class Github {
     constructor() {
         this.client_id = 'Iv1.46288115e5c16a2f';
         this.client_secret = '25e67ed3b6da1ebf13b04de1a8a69bc227eb811f';
-        this.repo_count = 2;
+        this.repo_count = 1;
     }
 
     async getRepo(userText) {
@@ -54,6 +54,22 @@ const ui = new UI();
 const searchRepo = document.querySelector('.input-repo');//инпут
 const form = document.querySelector(".autocomplete-list");//выводимый список при вводе в инпут чего либо
 
+const debounce = (fn, debounceTime) => {
+    let isStart;
+    return function (...args) {
+        if (isStart) {
+            clearTimeout(isStart);
+        }
+        isStart = setTimeout(() => {
+            fn.apply(this, args);
+        }, debounceTime);
+    };
+};
+
+searchRepo.addEventListener(
+    "input",
+    debounce((e) => gitRepo.getRepo(e), 500)
+);
 
 searchRepo.addEventListener('keyup', e => {
     const userText = e.target.value;
