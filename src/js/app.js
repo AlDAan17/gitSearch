@@ -43,10 +43,6 @@ class UI {
     clearProfile() {
         this.displayRepo.innerHTML = '';
     }
-
-    // clearInput(){
-    //
-    // }
 }
 
 const gitRepo = new Github();
@@ -94,7 +90,7 @@ searchRepo.addEventListener('keyup', e => {
                         for (let i = 0; i < repoList.length; i++) {
                             for (let i = 0; i < repoListItem.length; i++) {
                             closeItems[i].addEventListener('click', e => {
-                                repoListItem[i].remove(closeItems[i]);
+                                repoListItem[i].remove();
                                 console.log('close item is:', closeItems[i]);
 
                             })
