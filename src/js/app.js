@@ -6,19 +6,18 @@ class Github {
     }
 
     async getRepo(userText) {
-
         const repoResponse = await fetch(`https://api.github.com/search/repositories?q=${userText}&client_id=${this.client_id}&client_secret=${this.client_secret}&per_page=${this.repo_count}`);
         const repo = await repoResponse.json();
+        console.log('THIS IS IT', repo.items);
         return {
             repo: repo.items
-        }
+        };
     }
 }
 
 class UI {
     constructor() {
         this.displayRepo = document.getElementById('displayRepo');
-        // this.input = document.q
     }
 
     showRepo(repo) {
@@ -33,16 +32,20 @@ class UI {
     showOnPage(repo) {
         let output = '';
 
-        repo.forEach(function (repo) {
-            output += `
-             <div class="repo-list-item">
+        // function Test(){
+            document.getElementById('displayRep').innerHTML += `
+            <div class="repo-list-item">
               <p class="p-list">Name: ${repo.name}</p>
               <p class="p-list">Owner: ${repo.owner.login}</p>
               <p class="p-list">Stars: ${repo.stargazers_count}</p>
               <div class="close"></div>
             </div>
-            `});
-        document.getElementById('displayRep').innerHTML = output;
+            `;
+        // document.getElementById('displayRep').innerHTML = output;
+        //     Test();
+                // });
+
+            // }
     }
 
     clearProfile() {
@@ -68,9 +71,11 @@ searchRepo.addEventListener('keyup', e => {
 
             const items = document.getElementsByClassName("item");
             for(let i = 0; i < items.length; i++){
-                items[i].addEventListener('click', e =>{    //<------
+                items[i].addEventListener('click', e =>{
                     gitRepo.getRepo(items[i].innerText).then(data => {
-                        ui.showOnPage(data.repo)
+                        console.log('DATA: ', data.repo[0])
+                        ui.showOnPage(data.repo[0])
+                        // console.log(data.repo)
                     });
                 })
             }
@@ -80,3 +85,10 @@ searchRepo.addEventListener('keyup', e => {
     }
 });
 
+// const closeItems = document.getElementsByClassName('close');
+// for(let i = 0; i < closeItems.length; i++){
+//     closeItems[i].addEventListener('click', e =>{
+//         // items[i].removeChild(items[i])
+//         console.log('works')
+//     })
+// }
