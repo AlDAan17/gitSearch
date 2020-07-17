@@ -86,13 +86,3 @@ searchRepo.addEventListener('keyup', e => {
         ui.clearProfile();
     }
 });
-
-// const closeItems = document.getElementsByClassName('close');
-// console.log(closeItems)
-// for(let i = 0; i < closeItems.length; i++){
-//     console.log(closeItems[i])
-//     closeItems[i].addEventListener('click', e =>{
-//         // items[i].removeChild(items[i])
-//         console.log('works')
-//     })
-// }
