@@ -89,6 +89,8 @@ searchRepo.addEventListener('keyup', e => {
                         const repoListItem = document.getElementsByClassName('repo-list-item');
                         for (let i = 0; i < repoList.length; i++) {
                             for (let i = 0; i < repoListItem.length; i++) {
+                                console.log(repoListItem[i])
+                                console.log(repoListItem[i])
                             closeItems[i].addEventListener('click', e => {
                                 repoListItem[i].remove();
                                 console.log('close item is:', closeItems[i]);
