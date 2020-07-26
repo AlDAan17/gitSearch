@@ -2,11 +2,10 @@ class Github {
     constructor() {
         this.client_id = 'Iv1.46288115e5c16a2f';
         this.client_secret = '25e67ed3b6da1ebf13b04de1a8a69bc227eb811f';
-        this.repo_count = 1;
+        this.repo_count = 5;
     }
 
     async getRepo(userText) {
-        // console.log(userText.target.value)
         const repoResponse = await fetch(`https://api.github.com/search/repositories?q=${userText}&client_id=${this.client_id}&client_secret=${this.client_secret}&per_page=${this.repo_count}`);
         const repo = await repoResponse.json();
         return {
@@ -45,11 +44,6 @@ class UI {
     }
 }
 
-const gitRepo = new Github();
-const ui = new UI();
-const searchRepo = document.querySelector('.input-repo');//инпут
-const form = document.querySelector(".autocomplete-list");//выводимый список при вводе в инпут чего либо
-
 const debounce = (fn, debounceTime) => {
     let isStart;
     return function (...args) {
@@ -62,45 +56,48 @@ const debounce = (fn, debounceTime) => {
     };
 };
 
-searchRepo.addEventListener(
-    "input",
-    debounce((e) => gitRepo.getRepo(e), 500)
-);
+const gitRepo = new Github();
+const ui = new UI();
+const searchRepo = document.querySelector('.input-repo');//инпут
+const form = document.querySelector(".autocomplete-list");//выводимый список при вводе в инпут чего либо
 
-searchRepo.addEventListener('keyup', e => {
+function search(e) {
     const userText = e.target.value;
     if (userText === '') {
         ui.clearProfile();
     } else {
         gitRepo.getRepo(userText).then(data => {
             ui.showRepo(data.repo);
-
             const items = document.getElementsByClassName("item");
             for (let i = 0; i < items.length; i++) {
                 items[i].addEventListener('click', e => {
                     gitRepo.getRepo(items[i].innerText).then(data => {
-                        console.log('DATA: ', data.repo[0]);
+                        // console.log('DATA: ', data.repo[0]);
                         ui.showOnPage(data.repo[0]);
                         ui.clearProfile();
-                        searchRepo.value='';
+                        searchRepo.value = '';
 
                         const closeItems = document.getElementsByClassName('close');
                         const repoList = document.getElementsByClassName('repositores-list');
                         const repoListItem = document.getElementsByClassName('repo-list-item');
-                        for (let i = 0; i < repoList.length; i++) {
-                            for (let i = 0; i < repoListItem.length; i++) {
-                                console.log(repoListItem[i])
-                                console.log(repoListItem[i])
-                            closeItems[i].addEventListener('click', e => {
-                                repoListItem[i].remove();
-                                console.log('close item is:', closeItems[i]);
-
-                            })
-                        }
-                        }
+                        for (let i = 0; i < repoListItem.length; i++) {
+                            // for (let c = 0; c < closeItems.length; c++) {
+                                closeItems[i].addEventListener('click', e => {
+                                    repoListItem[i].remove();
+                                    // repoListItem[i].parentNode.removeChild(repoListItem[i]);
+                                    // console.log('close item is:', closeItems[i]);
+                                    // console.log('repoListItem is:', repoListItem[i]);
+                                })
+                            }
+                        })
                     });
-                })
-            }
-        });
+                }
+            })
+        }
     }
-});
+
+
+searchRepo.addEventListener(
+    'input',
+    debounce((e) => search(e), 500)
+);

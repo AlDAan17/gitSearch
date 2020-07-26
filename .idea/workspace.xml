@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c327797-9673-4deb-9960-244c1fe732d5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
     </list>
@@ -17,14 +18,16 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../git_app" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -69,19 +72,58 @@
       <workItem from="1594990007341" duration="15664000" />
       <workItem from="1595027517804" duration="1063000" />
       <workItem from="1595249252795" duration="376000" />
-      <workItem from="1595321365141" duration="964000" />
+      <workItem from="1595321365141" duration="1301000" />
+      <workItem from="1595524074984" duration="54000" />
+      <workItem from="1595524354829" duration="1250000" />
+      <workItem from="1595546692411" duration="38000" />
+      <workItem from="1595547367329" duration="599000" />
+      <workItem from="1595547978667" duration="123000" />
+      <workItem from="1595548487717" duration="941000" />
+      <workItem from="1595552283464" duration="1957000" />
+      <workItem from="1595554708784" duration="789000" />
+      <workItem from="1595558622246" duration="252000" />
+      <workItem from="1595558896410" duration="53000" />
+      <workItem from="1595558969285" duration="966000" />
+      <workItem from="1595560177074" duration="3393000" />
+      <workItem from="1595602348012" duration="3982000" />
+      <workItem from="1595613193605" duration="233000" />
+      <workItem from="1595613442470" duration="46000" />
+      <workItem from="1595613508357" duration="6094000" />
+      <workItem from="1595643124467" duration="584000" />
+      <workItem from="1595643726959" duration="158000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="295" key="FileChooserDialogImpl" timestamp="1595005342936">
+    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog" timestamp="1595558944376">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1595558944376" />
+    <state x="740" y="295" key="FileChooserDialogImpl" timestamp="1595643352450">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1595643352450" />
     <state x="740" y="295" key="FileChooserDialogImpl/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1594724491021" />
     <state x="2660" y="295" key="FileChooserDialogImpl/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1593712832478" />
     <state x="740" y="295" key="FileChooserDialogImpl/1920.87.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595005342936" />
+    <state x="388" y="197" width="1301" height="883" key="SettingsEditor" timestamp="1595643846375">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="388" y="197" width="1301" height="883" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1595643846375" />
+    <state x="810" y="467" width="614" height="492" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1595643363548">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="810" y="467" width="614" height="492" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1595643363548" />
+    <state x="623" y="259" width="840" height="678" key="search.everywhere.popup" timestamp="1595643750139">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="288" y="0" width="1340" height="1076" key="search.everywhere.popup.inPresentationMode" timestamp="1595547554651">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="288" y="0" width="1340" height="1076" key="search.everywhere.popup.inPresentationMode/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1595547554651" />
+    <state x="623" y="259" width="840" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1595643750139" />
   </component>
 </project>
