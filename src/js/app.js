@@ -2,7 +2,7 @@ class Github {
     constructor() {
         this.client_id = 'Iv1.46288115e5c16a2f';
         this.client_secret = '25e67ed3b6da1ebf13b04de1a8a69bc227eb811f';
-        this.repo_count = 5;
+        this.repo_count = 1;
     }
 
     async getRepo(userText) {
@@ -72,22 +72,18 @@ function search(e) {
             for (let i = 0; i < items.length; i++) {
                 items[i].addEventListener('click', e => {
                     gitRepo.getRepo(items[i].innerText).then(data => {
-                        // console.log('DATA: ', data.repo[0]);
                         ui.showOnPage(data.repo[0]);
                         ui.clearProfile();
                         searchRepo.value = '';
-
                         const closeItems = document.getElementsByClassName('close');
-                        const repoList = document.getElementsByClassName('repositores-list');
+                        // const repoList = document.getElementsByClassName('repositores-list');
                         const repoListItem = document.getElementsByClassName('repo-list-item');
-                        for (let i = 0; i < repoListItem.length; i++) {
-                            // for (let c = 0; c < closeItems.length; c++) {
-                                closeItems[i].addEventListener('click', e => {
-                                    repoListItem[i].remove();
-                                    // repoListItem[i].parentNode.removeChild(repoListItem[i]);
-                                    // console.log('close item is:', closeItems[i]);
-                                    // console.log('repoListItem is:', repoListItem[i]);
-                                })
+                            for (let i = 0; i < repoListItem.length; i++) {
+                                for(let j = 0; j < closeItems.length; j++) {
+                                    closeItems[j].addEventListener('click', e => {
+                                        repoListItem[i].remove();
+                                    })
+                                }
                             }
                         })
                     });
