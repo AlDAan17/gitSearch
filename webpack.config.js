@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 
 module.exports = {
@@ -47,5 +48,6 @@ module.exports = {
             filename: '[name].css'
         }),
         new WriteFilePlugin(),
+
     ],
 };
